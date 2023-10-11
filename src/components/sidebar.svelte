@@ -1,5 +1,5 @@
 <script>
-  import store from "@/store";
+  import { activeSection } from "@/store";
 
   let btns = [
     {
@@ -29,8 +29,8 @@
     <button
       class="btnglass"
       gap3
-      text={$store.activeSection == btn.name ? "slate7" : "!slate5"}
-      on:click={() => ($store.activeSection = btn.name)}
+      text={$activeSection == btn.name ? "slate7" : "!slate5"}
+      on:click={() => ($activeSection = btn.name)}
     >
       <div class={btn.icon}></div>
       {btn.name}

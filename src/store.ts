@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
+import { projectsData } from "@/misc/demodata";
 
-const store = writable({
-  activeSection: "Dashboard",
-});
+import type Projects from "@/types/projects";
 
-export default store;
+export const activeSection = writable<string>("Projects");
+export const projects = writable<Projects[]>(projectsData);

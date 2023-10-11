@@ -103,18 +103,14 @@ a {
   @apply flex flex-col gap5;
 }
 
-/* h1, */
-/* h2, */
-/* h3, */
-/* h4, */
-/* p, */
-/* ul { */
-/*   @apply m-0; */
-/* } */
-/**/
-/* h3 { */
-/*   @apply text-xl font-medium; */
-/* } */
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  @apply m-0;
+}
 
 .softShadow {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
