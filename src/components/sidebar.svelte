@@ -1,18 +1,20 @@
 <script>
-  import store from "$src/store";
+  import store from "@/store";
 
   let btns = [
     {
       name: "Dashboard",
       icon: "i-fluent:grid-circles-24-filled",
     },
+
     {
-      name: "Timer Tracker",
+      name: "Time Tracker",
       icon: "i-mdi:stopwatch-outline",
     },
+
     {
-      name: "Boards",
-      icon: "i-mingcute:board-line",
+      name: "Todo List",
+      icon: "i-solar:clipboard-list-linear",
     },
 
     {
@@ -22,7 +24,7 @@
   ];
 </script>
 
-<aside p="5 l2 r10" shadow-xl>
+<aside p="5 l2 r15" shadow-xl>
   {#each btns as btn}
     <button
       class="btnglass"

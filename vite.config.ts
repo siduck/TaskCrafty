@@ -8,8 +8,7 @@ export default defineConfig({
   plugins: [UnoCSS(), svelte()],
   resolve: {
     alias: {
-      $src: path.resolve("./src"),
-      $components: path.resolve("./src/components/"),
+      "@": path.resolve("./src"),
     },
   },
 });
