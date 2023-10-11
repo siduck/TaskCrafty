@@ -1,3 +1,121 @@
+@unocss all;
+
 body {
   margin: 0;
+  @apply font-sans;
+}
+
+flexCentered {
+  @apply flex items-center gap2;
+}
+
+.n {
+  height: calc(100vh - 6rem);
+}
+
+button {
+  @apply p3 px5 border-0 rounded-lg;
+  @apply bg-black text-white;
+  @apply hover:cursor-pointer
+  @apply flex gap2 items-center justify-center;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  @apply text-base;
+}
+
+.centered {
+  @apply flex items-center justify-center;
+}
+
+.iconTxt {
+  @apply flex justify-center gap3 items-center;
+}
+
+button {
+  @apply p3 px5 border-0 rounded-lg;
+  @apply bg-black text-white;
+  @apply hover:lighten;
+  @apply flex gap2 items-center justify-center;
+}
+
+.btn_small {
+  @apply p2 px4;
+}
+
+.btnPrimary {
+  @apply bg-primary text-white;
+}
+
+.btnalt {
+  @apply bg-white text-black hover:darken;
+  @apply border-1 border-solid border-slate-3;
+}
+
+.btnglass {
+  @apply bg-transparent text-black hover:nocolor;
+}
+
+.curved {
+  @apply rounded-lg;
+}
+
+input {
+  @apply p4 border-0  bg-pale rounded-lg;
+}
+
+input:focus {
+  @apply outline-none;
+}
+
+::placeholder {
+  @apply text-slate-5;
+}
+
+a {
+  @apply text-black decoration-none;
+}
+
+.box {
+  @apply max-w-[1600px] px5;
+}
+
+.badge {
+  @apply bg-slate-1 p2 px3 rounded-lg w-fit;
+}
+
+.darkCol {
+  @apply bg-slate-7 text-white;
+}
+
+.row {
+  @apply flex gap5 items-center;
+}
+
+.col5 {
+  @apply grid gap5;
+}
+
+.flexcol5 {
+  @apply flex flex-col gap5;
+}
+
+/* h1, */
+/* h2, */
+/* h3, */
+/* h4, */
+/* p, */
+/* ul { */
+/*   @apply m-0; */
+/* } */
+/**/
+/* h3 { */
+/*   @apply text-xl font-medium; */
+/* } */
+
+.softShadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

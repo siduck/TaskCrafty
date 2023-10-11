@@ -14,9 +14,9 @@
     "allowJs": true,
     "checkJs": true,
     "isolatedModules": true,
-     "paths": {
-      "$src": ["./src/*"],
-      "$components": ["./src/components/*"]
+    "paths": {
+      "$src/*": ["src/*"],
+      "$components/*": ["src/components/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],

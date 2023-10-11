@@ -4,6 +4,7 @@ import {
   presetIcons,
   presetTagify,
   presetUno,
+  presetWebFonts,
 } from "unocss";
 
 import transformerDirectives from "@unocss/transformer-directives";
@@ -16,6 +17,13 @@ export default defineConfig({
 
     presetIcons({
       scale: 1.3,
+    }),
+
+    presetWebFonts({
+      provider: "bunny",
+      fonts: {
+        sans: "Plus Jakarta Sans",
+      },
     }),
   ],
 
