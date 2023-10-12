@@ -5,20 +5,21 @@
   export let name: string = "";
   export let description: string = "";
   export let onClick: () => void = () => {};
+  export let index: number;
 
   const deleteProject = () => {
-    $projects = $projects.filter((project) => project.name != name);
+    projects.delete(index);
   };
 </script>
 
 <button
   class="curved grid gap3 p5 btnglass !bg-white text-left"
   justify="stretch"
+  hover="cursor-pointer"
   on:click={(e) => {
     e.stopPropagation();
     onClick();
   }}
-  hover="cursor-pointer"
 >
   <h3>{name}</h3>
   <p>{description}</p>

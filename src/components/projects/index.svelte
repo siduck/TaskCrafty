@@ -7,9 +7,11 @@
 
   let projectListVisible: boolean = true;
   let selectedProject: string;
+  let selectedProjectIndex: number;
 
-  const openProject = (name: string) => {
+  const openProject = (name: string, index: number) => {
     selectedProject = name;
+    selectedProjectIndex = index;
     projectListVisible = false;
   };
 </script>
@@ -24,11 +26,12 @@
 
     <!-- project cards -->
     <grid gap6 class="grid-cols-3">
-      {#each $projects as project}
+      {#each $projects as project, i}
         <Card
+          index={i}
           name={project.name}
           description={project.description}
-          onClick={() => openProject(project.name)}
+          onClick={() => openProject(project.name, i)}
         />
       {/each}
     </grid>
@@ -38,6 +41,7 @@
     <Kanban
       project={selectedProject}
       onClose={() => (projectListVisible = true)}
+      projectIndex={selectedProjectIndex}
     />
   {/if}
 </section>

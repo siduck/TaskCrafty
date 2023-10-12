@@ -11,14 +11,11 @@
   const onSubmit = (e: any) => {
     e.preventDefault();
 
-    $projects = [
-      ...$projects,
-      {
-        name: projectName,
-        description: description,
-        todos: [],
-      },
-    ];
+    projects.new({
+      name: projectName,
+      description: description,
+      todos: [],
+    });
 
     formVisible = false;
     projectName = "";

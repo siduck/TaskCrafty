@@ -1,9 +1,10 @@
-interface Todo {
+export interface Todo {
   name: string;
   type: string;
+  desc?: string;
 }
 
-export default interface Projects {
+export interface Project {
   name: string;
   description: string;
   todos: Todo[];

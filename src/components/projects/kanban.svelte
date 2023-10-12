@@ -1,18 +1,29 @@
 <script lang="ts">
   import Btn from "@/components/ui/button.svelte";
+  import TodoCard from "./todo.svelte";
+  import type { Todo, Project } from "@/types/projects";
+
   import { projects } from "@/store";
 
   export let project: string = "";
   export let onClose: () => void = () => {};
+  export let projectIndex: number;
 
   const kanbanColumns = [
-    { name: "To do", storeval: "todo" },
-    { name: "In Progress", storeval: "in-progress" },
-    { name: "Completed", storeval: "done" },
+    { name: "To do", storeval: "todo", bg: "bg-blue2" },
+    { name: "In Progress", storeval: "in-progress", bg: "bg-red2" },
+    { name: "Completed", storeval: "done", bg: "bg-green2" },
   ];
 
-  $: tasks = $projects.find((x) => x.name == project)?.todos || [];
-  $: todos = (name: string) => tasks.filter((x) => x.type === name);
+  $: projectData = ($projects.find((x) => x.name == project) || {}) as Project;
+
+  $: todos = (name: string) => {
+    return projectData?.todos?.filter((x: Todo) => x.type === name);
+  };
+
+  const createTodo = (type: string) => {
+    projects.addTodo(projectIndex, { name: "", desc: "", type: type });
+  };
 </script>
 
 <!-- heading  -->
@@ -31,12 +42,30 @@
 
 <grid class="grid-cols-3 gap5">
   {#each kanbanColumns as column}
-    <section bg="white" p5 class="curved shadow-md">
-      {column.name}
+    <section class="curved flex flex-col gap5">
+      <!-- column heading -->
+      <flex items="center" p3 class="curved {column.bg}">
+        <h3 mr="auto">{column.name}</h3>
+        <Btn
+          icon="i-icon-park:plus"
+          p="0"
+          class="btnglass"
+          onClick={() => createTodo(column.storeval)}
+        />
+      </flex>
 
-      {#each todos(column.storeval) as todo}
-        <div>{todo.name}</div>
-      {/each}
+      <!-- todo list -->
+      <flex class="flex-col gap3">
+        {#each todos(column.storeval) as todo, i}
+          <TodoCard
+            name={todo.name}
+            desc={todo.desc}
+            index={i}
+            type={column.storeval}
+            {projectIndex}
+          />
+        {/each}
+      </flex>
     </section>
   {/each}
 </grid>
