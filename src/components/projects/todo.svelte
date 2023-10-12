@@ -12,14 +12,15 @@
 
   setTimeout(() => {
     if (name !== "") {
-      editorMode = false
-    };
+      editorMode = false;
+    }
   }, 0);
 
   const saveTodo = (e: any) => {
-    alert(type)
-    const todo = { name, desc, type };
-    projects.editTodo(projectIndex, index, todo);
+    const todo = { name: name, desc: desc };
+    projects.editTodo(projectIndex, type, index, todo);
+
+    console.log($projects);
     editorMode = false;
   };
 </script>

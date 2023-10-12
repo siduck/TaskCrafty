@@ -23,16 +23,21 @@ const createProjectStore = () => {
       });
     },
 
-    addTodo: (projectIndex: number, newTodo: Todo) => {
+    addTodo: (projectIndex: number, todoType: string, newTodo: Todo) => {
       update((data) => {
-        data[projectIndex].todos.push(newTodo);
+        data[projectIndex].todos[todoType].push(newTodo);
         return data;
       });
     },
 
-    editTodo: (projectIndex: number, index: number, newTodo:Todo) => {
+    editTodo: (
+      projectIndex: number,
+      todoType: string,
+      index: number,
+      newTodo: Todo,
+    ) => {
       update((data) => {
-        data[projectIndex].todos[index] = newTodo;
+        data[projectIndex].todos[todoType][index] = newTodo;
         return data;
       });
     },

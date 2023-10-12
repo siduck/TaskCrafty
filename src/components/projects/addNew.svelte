@@ -14,7 +14,7 @@
     projects.new({
       name: projectName,
       description: description,
-      todos: [],
+      todos: { todo: [], inProgress: [], completed: [] },
     });
 
     formVisible = false;

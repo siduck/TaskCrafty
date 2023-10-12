@@ -6,11 +6,11 @@
   import Kanban from "./kanban.svelte";
 
   let projectListVisible: boolean = true;
-  let selectedProject: string;
+  let selectedProjectName: string;
   let selectedProjectIndex: number;
 
   const openProject = (name: string, index: number) => {
-    selectedProject = name;
+    selectedProjectName = name;
     selectedProjectIndex = index;
     projectListVisible = false;
   };
@@ -39,7 +39,7 @@
     <!-- detailed project info & with kanban board -->
   {:else}
     <Kanban
-      project={selectedProject}
+      project={selectedProjectName}
       onClose={() => (projectListVisible = true)}
       projectIndex={selectedProjectIndex}
     />

@@ -11,18 +11,14 @@
 
   const kanbanColumns = [
     { name: "To do", storeval: "todo", bg: "bg-blue2" },
-    { name: "In Progress", storeval: "in-progress", bg: "bg-red2" },
-    { name: "Completed", storeval: "done", bg: "bg-green2" },
+    { name: "In Progress", storeval: "inProgress", bg: "bg-red2" },
+    { name: "Completed", storeval: "completed", bg: "bg-green2" },
   ];
 
   $: projectData = ($projects.find((x) => x.name == project) || {}) as Project;
 
-  $: todos = (name: string) => {
-    return projectData?.todos?.filter((x: Todo) => x.type === name);
-  };
-
   const createTodo = (type: string) => {
-    projects.addTodo(projectIndex, { name: "", desc: "", type: type });
+    projects.addTodo(projectIndex, type, { name: "", desc: "" });
   };
 </script>
 
@@ -56,7 +52,7 @@
 
       <!-- todo list -->
       <flex class="flex-col gap3">
-        {#each todos(column.storeval) as todo, i}
+        {#each projectData?.todos[column.storeval] as todo, i}
           <TodoCard
             name={todo.name}
             desc={todo.desc}

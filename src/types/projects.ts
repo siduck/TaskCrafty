@@ -1,11 +1,14 @@
-export interface Todo {
+export type Todo = {
   name: string;
-  type: string;
-  desc?: string;
-}
+  desc: string;
+};
 
-export interface Project {
+export type Project = {
   name: string;
   description: string;
-  todos: Todo[];
-}
+  todos: {
+    todo: Todo[];
+    inProgress: Todo[];
+    completed: Todo[];
+  };
+};
