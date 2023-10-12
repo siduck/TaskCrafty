@@ -1,8 +1,8 @@
 <script lang="ts">
   import Btn from "@/components/ui/button.svelte";
   import TodoCard from "./todo.svelte";
-  import type { Todo, Project } from "@/types/projects";
-
+  import TodoEditor from "./todoEditor.svelte";
+  import type { Project } from "@/types/projects";
   import { projects } from "@/store";
 
   export let project: string = "";
@@ -17,8 +17,23 @@
 
   $: projectData = ($projects.find((x) => x.name == project) || {}) as Project;
 
-  const createTodo = (type: string) => {
-    projects.addTodo(projectIndex, type, { name: "", desc: "" });
+  // store todo forms here
+  let temporaryEditors = {
+    todo: [],
+    inProgress: [],
+    completed: [],
+  };
+
+  const createTodoEditor = (type: string) => {
+    let tmp = temporaryEditors;
+    tmp[type].push({ name: "", desc: "" });
+    temporaryEditors = tmp;
+  };
+
+  const deleteTodoEditor = (type: string, index: number) => {
+    let tmp = temporaryEditors;
+    tmp[type].splice(index, 1);
+    temporaryEditors = tmp;
   };
 </script>
 
@@ -46,7 +61,7 @@
           icon="i-icon-park:plus"
           p="0"
           class="btnglass"
-          onClick={() => createTodo(column.storeval)}
+          onClick={() => createTodoEditor(column.storeval)}
         />
       </flex>
 
@@ -59,6 +74,16 @@
             index={i}
             type={column.storeval}
             {projectIndex}
+          />
+        {/each}
+
+        <!-- {#each } -->
+        {#each temporaryEditors[column.storeval] as tmpEditor, i}
+          <TodoEditor
+            index={i}
+            type={column.storeval}
+            {projectIndex}
+            onClose={() => deleteTodoEditor(column.storeval, i)}
           />
         {/each}
       </flex>

@@ -23,7 +23,7 @@ const createProjectStore = () => {
       });
     },
 
-    addTodo: (projectIndex: number, todoType: string, newTodo: Todo) => {
+    createTodo: (projectIndex: number, todoType: string, newTodo: Todo) => {
       update((data) => {
         data[projectIndex].todos[todoType].push(newTodo);
         return data;
