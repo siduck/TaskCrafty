@@ -35,13 +35,6 @@ textarea {
   @apply flex justify-center gap3 items-center;
 }
 
-button {
-  @apply p3 px5 border-0 rounded-lg;
-  @apply bg-black text-white;
-  @apply hover:lighten;
-  @apply flex gap2 items-center justify-center;
-}
-
 .btn_small {
   @apply p2 px4;
 }
