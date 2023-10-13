@@ -41,6 +41,13 @@ const createProjectStore = () => {
         return data;
       });
     },
+
+    deleteTodo: (projectIndex: number, todoType: string, index: number) => {
+      update((data) => {
+        data[projectIndex].todos[todoType].splice(index, 1);
+        return data;
+      });
+    },
   };
 };
 

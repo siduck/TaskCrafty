@@ -1,6 +1,7 @@
 <script lang="ts">
   import Btn from "@/components/ui/button.svelte";
   import TodoEditor from "./todoEditor.svelte";
+  import { projects } from "@/store";
 
   export let name: string;
   export let desc: string;
@@ -33,11 +34,21 @@
     {/if}
   {/if}
 
-  <Btn
-    icon="i-material-symbols:edit-outline text-sm"
-    mr="auto"
-    p="2"
-    rounded="full"
-    onClick={() => (editorMode = !editorMode)}
-  />
+  <flex>
+    <Btn
+      icon="i-material-symbols:edit-outline text-sm"
+      ml="auto"
+      p="2"
+      rounded="full"
+      onClick={() => (editorMode = !editorMode)}
+    />
+
+    <Btn
+      icon="i-material-symbols:delete"
+      p="2"
+      onClick={() => {
+        projects.deleteTodo(projectIndex, type, index);
+      }}
+    />
+  </flex>
 </grid>
