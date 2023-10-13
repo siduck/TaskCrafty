@@ -3,7 +3,7 @@
   import TodoCard from "./todo.svelte";
   import TodoEditor from "./todoEditor.svelte";
   import type { Project } from "@/types/projects";
-  import { projects } from "@/store";
+  import { projects, draggedTodoData } from "@/store";
 
   export let project: string = "";
   export let onClose: () => void = () => {};
@@ -24,6 +24,9 @@
     completed: [],
   };
 
+  let dummyTodoColumn: string = "";
+
+  // todo editor funcs
   const createTodoEditor = (type: string) => {
     let tmp = temporaryEditors;
     tmp[type].push({ name: "", desc: "" });
@@ -34,6 +37,26 @@
     let tmp = temporaryEditors;
     tmp[type].splice(index, 1);
     temporaryEditors = tmp;
+  };
+
+  // mouse drag funcs
+  const handleDragEnter = (e: DragEvent, todoType: string) => {
+    e.preventDefault();
+    dummyTodoColumn = $draggedTodoData.type == todoType ? "" : todoType;
+  };
+
+  const handleDragOver = (e: DragEvent) => e.preventDefault();
+
+  const handleDrop = (e: DragEvent, todoType: string) => {
+    e.preventDefault();
+    const x = $draggedTodoData;
+
+    if (x.type == todoType) return;
+
+    const newTodo = $projects[x.projectIndex].todos[x.type][x.index];
+    projects.createTodo(projectIndex, todoType, newTodo);
+    projects.deleteTodo(x.projectIndex, x.type, x.index);
+    dummyTodoColumn = false;
   };
 </script>
 
@@ -53,7 +76,13 @@
 
 <grid class="grid-cols-3 gap5">
   {#each kanbanColumns as column}
-    <section class="curved flex flex-col gap5">
+    <section
+      class="curved flex flex-col gap5 min-h-[calc(100vh-10rem)]"
+      on:dragover={handleDragOver}
+      on:dragenter={(e) => handleDragEnter(e, column.storeval)}
+      on:drop={(e) => handleDrop(e, column.storeval)}
+      role="application"
+    >
       <!-- column heading -->
       <flex items="center" p3 class="curved {column.bg}">
         <h3 mr="auto">{column.name}</h3>
@@ -66,6 +95,7 @@
       </flex>
 
       <!-- todo list -->
+      
       <flex class="flex-col gap3">
         {#each projectData?.todos[column.storeval] as todo, i}
           <TodoCard
@@ -77,7 +107,7 @@
           />
         {/each}
 
-        <!-- {#each } -->
+        <!--todo editors -->
         {#each temporaryEditors[column.storeval] as tmpEditor, i}
           <TodoEditor
             index={i}
@@ -87,6 +117,11 @@
           />
         {/each}
       </flex>
+
+      <!-- dummy todo placeholder (show only when dragged todo is in column) -->
+      {#if dummyTodoColumn == column.storeval}
+        <div class="p10 curved bg-slate2"></div>
+      {/if}
     </section>
   {/each}
 </grid>

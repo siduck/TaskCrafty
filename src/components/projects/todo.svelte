@@ -1,7 +1,7 @@
 <script lang="ts">
   import Btn from "@/components/ui/button.svelte";
   import TodoEditor from "./todoEditor.svelte";
-  import { projects } from "@/store";
+  import {draggedTodoData, projects } from "@/store";
 
   export let name: string;
   export let desc: string;
@@ -10,9 +10,22 @@
   export let projectIndex: number;
 
   let editorMode = false;
+
+  const handleDragStart = (e) => {
+    let data = { type, index, projectIndex };
+    draggedTodoData.set(data);
+    console.log($draggedTodoData)
+    // e.dataTransfer.setData("text/plain", JSON.stringify(data));
+  };
 </script>
 
-<grid gap3 p4 bg-white class="curved">
+<grid
+  class="curved bg-white p4 gap3"
+  on:dragstart={handleDragStart}
+  draggable={true}
+  role="application"
+  hover="cursor-pointer"
+>
   <!-- editor mode i.e with input fields -->
   {#if editorMode}
     <TodoEditor
@@ -46,9 +59,7 @@
     <Btn
       icon="i-material-symbols:delete"
       p="2"
-      onClick={() => {
-        projects.deleteTodo(projectIndex, type, index);
-      }}
+      onClick={() => projects.deleteTodo(projectIndex, type, index)}
     />
   </flex>
 </grid>

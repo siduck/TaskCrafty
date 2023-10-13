@@ -10,10 +10,6 @@ flexCentered {
   @apply flex items-center gap2;
 }
 
-.n {
-  height: calc(100vh - 6rem);
-}
-
 button {
   @apply p3 px5 border-0 rounded-lg;
   @apply bg-black text-white;

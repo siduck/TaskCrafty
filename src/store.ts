@@ -54,3 +54,6 @@ const createProjectStore = () => {
 export const projects = createProjectStore();
 
 projects.set(projectsData);
+
+// useful whenever a todo is dragged to another column of kanban board
+export const draggedTodoData = writable<Todo>();
