@@ -3,7 +3,7 @@ import { projectsData } from "@/misc/demodata";
 
 import type { Project, Todo } from "@/types/projects";
 
-export const activeSection = writable<string>("Projects");
+export const activeSection = writable<string>("Time Tracker");
 
 const createProjectStore = () => {
   const { subscribe, set, update } = writable<Project[]>([]);

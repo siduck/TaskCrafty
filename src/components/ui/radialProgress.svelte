@@ -7,17 +7,21 @@
 
   export let progress: number = 0;
   export let size: number = 150;
+
+  // strokes
   export let activeStroke: strokeTypes = {
     color: "blue",
     width: 10,
     class: "",
   };
+
   export let inactiveStroke: strokeTypes = {
     color: "lightgray",
     width: 10,
     class: "",
   };
-  export let text: string;
+
+  export let text = { value: "", class: "" };
 </script>
 
 <svg
@@ -51,7 +55,8 @@
     y={size / 2}
     text-anchor="middle"
     dominant-baseline="middle"
+    class={text.class}
   >
-    {text}
+    {text.value}
   </text>
 </svg>
