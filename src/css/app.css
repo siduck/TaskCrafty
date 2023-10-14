@@ -18,8 +18,8 @@ textarea {
   @apply text-base;
 }
 
-.centered {
-  @apply flex items-center justify-center;
+.vertCentered {
+  @apply flex items-center gap2;
 }
 
 .btn_small {

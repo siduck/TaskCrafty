@@ -1,5 +1,6 @@
 <script lang="ts">
   import Btn from "@/components/ui/button.svelte";
+  import ProgressBar from "@/components/ui/progressbar.svelte";
   import { projects } from "@/store";
 
   export let name: string = "";
@@ -10,6 +11,29 @@
   const deleteProject = () => {
     projects.delete(index);
   };
+
+  let todosCount: number = 0;
+  let finishedTodosCount: number = 0;
+  let todoProgessStr: string = "";
+
+  const getTodosLen = () => {
+    const todos = $projects[index].todos;
+
+    todosCount =
+      todos.todo.length + todos.inProgress.length + todos.completed.length;
+
+    finishedTodosCount = todos.completed.length;
+
+    const todosDonePercentage = Math.floor(
+      (finishedTodosCount / todosCount) * 100,
+    );
+
+    todoProgessStr = `${todosDonePercentage.toString()}%`;
+
+    if (todoProgessStr == "NaN%") todoProgessStr = "0%";
+  };
+
+  getTodosLen();
 </script>
 
 <button
@@ -22,7 +46,15 @@
   }}
 >
   <h3>{name}</h3>
-  <p text='slate5'>{description}</p>
+  <p text="slate5">{description}</p>
+
+  <ProgressBar progress={todoProgessStr} css="[&_*]:p0.7" />
+
+  <flex class="gap2 vertCentered [&_*]:text-sm">
+    <span class="i-bi:check-all"></span>
+    <span text="sm"> Todos done </span>
+    <span>{finishedTodosCount} / {todosCount}</span>
+  </flex>
 
   <Btn
     ml="auto"

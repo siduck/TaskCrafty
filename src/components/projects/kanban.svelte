@@ -10,9 +10,9 @@
   export let projectIndex: number;
 
   const kanbanColumns = [
-    { name: "To do", storeval: "todo", bg: "bg-blue2" },
-    { name: "In Progress", storeval: "inProgress", bg: "bg-red2" },
-    { name: "Completed", storeval: "completed", bg: "bg-green2" },
+    { name: "To do", storeval: "todo", bg: "!bg-red2" , icon:'i-tabler:circle-dotted' },
+    { name: "In Progress", storeval: "inProgress", bg: "!bg-blue2",icon:'i-mdi:orbit' },
+    { name: "Completed", storeval: "completed", bg: "!bg-emerald2", icon:'i-tabler:circle-check' },
   ];
 
   $: projectData = ($projects.find((x) => x.name == project) || {}) as Project;
@@ -84,18 +84,18 @@
       role="application"
     >
       <!-- column heading -->
-      <flex items="center" p3 class="curved {column.bg}">
+      <flex p3 class="vertCentered curved bg-white">
+        <div class={column.icon} > </div>
         <h3 mr="auto">{column.name}</h3>
         <Btn
-          icon="i-icon-park:plus"
-          p="0"
-          class="btnglass"
+          icon="i-icon-park:plus text-sm"
+          p="1"
+          class="btnglass {column.bg} rounded-full"
           onClick={() => createTodoEditor(column.storeval)}
         />
       </flex>
 
       <!-- todo list -->
-
       <flex class="flex-col gap3">
         {#each projectData?.todos[column.storeval] as todo, i}
           <TodoCard
@@ -121,7 +121,7 @@
       <!-- dummy todo placeholder (show only when dragged todo is in column) -->
       {#if dummyTodoColumn == column.storeval}
         <div class="p10 curved bg-slate2 flex" border="2px dotted gray">
-          <span text='slate xl' mx-auto> Drop Here! </span>
+          <span text="slate xl" mx-auto> Drop Here! </span>
         </div>
       {/if}
     </section>
