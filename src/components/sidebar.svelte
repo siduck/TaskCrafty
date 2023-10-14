@@ -4,10 +4,10 @@
   import { activeSection } from "@/store";
 
   let sections = [
-    {
-      name: "Dashboard",
-      icon: "i-fluent:grid-circles-24-filled",
-    },
+    // {
+    //   name: "Dashboard",
+    //   icon: "i-fluent:grid-circles-24-filled",
+    // },
 
     {
       name: "Time Tracker",
@@ -53,13 +53,13 @@
   {/each}
 
     <!-- settings btn & theme toggle -->
-  <flex mt="auto" gap2>
-    <Btn
-      icon="i-mingcute:settings-1-line"
-      class="!w-full"
-      text="Settings"
-      hover="bg-slate-50"
-    />
-    <ThemeToggle />
-  </flex>
+  <!-- <flex mt="auto" gap2> -->
+  <!--   <Btn -->
+  <!--     icon="i-mingcute:settings-1-line" -->
+  <!--     class="!w-full" -->
+  <!--     text="Settings" -->
+  <!--     hover="bg-slate-50" -->
+  <!--   /> -->
+  <!--   <ThemeToggle /> -->
+  <!-- </flex> -->
 </aside>
