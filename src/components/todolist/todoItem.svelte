@@ -28,7 +28,7 @@
 
   {#if isHovered}
     <Btn
-      icon="i-fluent:delete-12-filled text-sm"
+      icon="i-fluent:delete-12-filled text-sm bg-red2"
       class="p1 ml-auto "
       onClick={DeleteTodo}
     />

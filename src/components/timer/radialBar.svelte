@@ -1,33 +1,40 @@
 <script lang="ts">
   import RadialProgress from "@/components/ui/radialProgress.svelte";
   import { genTimerText } from "./utils";
+  import { timerLength, timeInSec } from "@/store";
+  import { timerSound } from "@/constants";
 
-  let timeLength = 1; // Initial time in minutes
-  let timeInSec = timeLength * 60;
   let timerInterval: number;
 
-  $: timerText = genTimerText(timeInSec);
-  $: progress = 100 - (timeInSec / (timeLength * 60)) * 100;
+  $: timerText = genTimerText($timeInSec);
+  $: progress = 100 - ($timeInSec / ($timerLength * 60)) * 100;
 
-  console.log(progress);
+  let timerAudioEl: HTMLAudioElement;
+
+  const onComplete = () => {
+    clearInterval(timerInterval);
+    timerAudioEl.volume = 0.2;
+    console.log(timerAudioEl);
+    timerAudioEl.play();
+  };
 
   const updateTime = () => {
-    if (timeInSec <= 0) {
-      clearInterval(timerInterval);
+    if ($timeInSec <= 0) {
+      onComplete();
       return;
     }
 
-    timeInSec--;
+    $timeInSec = $timeInSec - 1;
   };
 
   const run = () => {
-    if (timeInSec == 0) timeInSec = timeLength * 60;
+    if ($timeInSec == 0) $timeInSec = $timerLength * 60;
     timerInterval = setInterval(updateTime, 10);
   };
 
   const stop = (type: string) => {
     clearInterval(timerInterval);
-    if (type == "isReset") timeInSec = timeLength * 60;
+    if (type == "isReset") $timeInSec = $timerLength * 60;
   };
 </script>
 
@@ -45,4 +52,6 @@
     <button on:click={stop}> pause </button>
     <button on:click={() => stop("isReset")}> clear </button>
   </flex>
+
+  <audio src={timerSound} bind:this={timerAudioEl}></audio>
 </grid>

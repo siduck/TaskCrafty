@@ -6,7 +6,7 @@ import type { TodaysTodo } from "@/types/todaysTodo";
 
 //------------------------------------------- sidebar -------------------------------------------
 
-export const activeSection = writable<string>("Today's Todo");
+export const activeSection = writable<string>("Time Tracker");
 
 //------------------------------------------- todays todo -------------------------------------------
 
@@ -95,5 +95,9 @@ const createTodoStore = () => {
 };
 
 export const todaysTodoList = createTodoStore();
-
 todaysTodoList.set(todaysTodoData);
+
+//------------------------------------------ Time tracker -------------------------------------------
+export const timerLength = writable<number>(1);
+export const timeInSec = writable<number>(1 * 60);
+export const timerInterval = writable<number>();

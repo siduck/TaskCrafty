@@ -42,7 +42,7 @@
   {#each sections as btn}
     <Btn
       class={`btnglass w-full justify-start  ${
-        $activeSection == btn.name ? "text-slate8" : "!text-slate5"
+        $activeSection == btn.name ? "text-slate8 !bg-slate-50" : "!text-slate5"
       }`}
       text={btn.name}
       icon={btn.icon}
