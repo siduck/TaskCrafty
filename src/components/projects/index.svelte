@@ -16,7 +16,7 @@
   };
 </script>
 
-<section p7 py5 bg-slate1>
+<section p7 py5 bg-pale>
   <!-- project list -->
   {#if projectListVisible}
     <flex mb5>

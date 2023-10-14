@@ -56,7 +56,7 @@
     const newTodo = $projects[x.projectIndex].todos[x.type][x.index];
     projects.createTodo(projectIndex, todoType, newTodo);
     projects.deleteTodo(x.projectIndex, x.type, x.index);
-    dummyTodoColumn = false;
+    dummyTodoColumn = "";
   };
 </script>
 
@@ -95,7 +95,7 @@
       </flex>
 
       <!-- todo list -->
-      
+
       <flex class="flex-col gap3">
         {#each projectData?.todos[column.storeval] as todo, i}
           <TodoCard
@@ -120,7 +120,9 @@
 
       <!-- dummy todo placeholder (show only when dragged todo is in column) -->
       {#if dummyTodoColumn == column.storeval}
-        <div class="p10 curved bg-slate2"></div>
+        <div class="p10 curved bg-slate2 flex" border="2px dotted gray">
+          <span text='slate xl' mx-auto> Drop Here! </span>
+        </div>
       {/if}
     </section>
   {/each}

@@ -32,4 +32,11 @@ export default defineConfig({
       softWhite: "#F9FAFB",
     },
   },
+
+  rules: [
+    ["lighten", { filter: "brightness(1.3)" }],
+    ["lighten2", { filter: "brightness(1.1)" }],
+    ["darken", { filter: "brightness(0.95)" }],
+    ["nocolor", { filter: "brightness(1)" }],
+  ],
 });

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Btn from "@/components/ui/button.svelte";
   import TodoEditor from "./todoEditor.svelte";
-  import {draggedTodoData, projects } from "@/store";
+  import { draggedTodoData, projects } from "@/store";
 
   export let name: string;
   export let desc: string;
@@ -11,11 +11,9 @@
 
   let editorMode = false;
 
-  const handleDragStart = (e) => {
+  const handleDragStart = () => {
     let data = { type, index, projectIndex };
     draggedTodoData.set(data);
-    console.log($draggedTodoData)
-    // e.dataTransfer.setData("text/plain", JSON.stringify(data));
   };
 </script>
 
@@ -47,7 +45,7 @@
     {/if}
   {/if}
 
-  <flex>
+  <flex gap='2'>
     <Btn
       icon="i-material-symbols:edit-outline text-sm"
       ml="auto"

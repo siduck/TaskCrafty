@@ -3,7 +3,7 @@
 body {
   margin: 0;
   /* @apply font-sans; */
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 flexCentered {
@@ -53,7 +53,8 @@ textarea {
   @apply rounded-lg;
 }
 
-input , textarea {
+input,
+textarea {
   @apply p4 border-0  bg-pale rounded-lg;
 }
 

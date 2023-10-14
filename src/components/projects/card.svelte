@@ -22,7 +22,7 @@
   }}
 >
   <h3>{name}</h3>
-  <p>{description}</p>
+  <p text='slate5'>{description}</p>
 
   <Btn
     ml="auto"
