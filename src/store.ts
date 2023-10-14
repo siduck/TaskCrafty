@@ -98,6 +98,6 @@ export const todaysTodoList = createTodoStore();
 todaysTodoList.set(todaysTodoData);
 
 //------------------------------------------ Time tracker -------------------------------------------
-export const timerLength = writable<number>(1);
-export const timeInSec = writable<number>(1 * 60);
+export const timerLength = writable<number>(25);
+export const timeInSec = writable<number>(25 * 60);
 export const timerInterval = writable<number>();

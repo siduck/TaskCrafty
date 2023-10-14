@@ -40,7 +40,7 @@
         icon={label.icon}
         hover="bg-slate7"
         class={`${
-          clickedSwitcherLabel === label.type ? "bg-white text-black" : ""
+          clickedSwitcherLabel === label.type ? "bg-white text-black hover:text-white" : ""
         }`}
         onClick={() => (clickedSwitcherLabel = label.type)}
       >
