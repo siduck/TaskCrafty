@@ -43,7 +43,7 @@
     <h4 font="medium" text="slate8">{name}</h4>
 
     {#if desc}
-      <p text="slate6 base">{desc}</p>
+      <p text="slate6" border='0 t solid slate2' class='pt3'>{desc}</p>
     {/if}
   {/if}
 

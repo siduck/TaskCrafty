@@ -1,13 +1,7 @@
-@unocss all;
-
 body {
   margin: 0;
   /* @apply font-sans; */
   font-family: "Inter", sans-serif;
-}
-
-flexCentered {
-  @apply flex items-center gap2;
 }
 
 button {
@@ -28,16 +22,8 @@ textarea {
   @apply flex items-center justify-center;
 }
 
-.iconTxt {
-  @apply flex justify-center gap3 items-center;
-}
-
 .btn_small {
   @apply p2 px4;
-}
-
-.btnPrimary {
-  @apply bg-primary text-white;
 }
 
 .btnalt {
@@ -70,25 +56,10 @@ a {
   @apply text-black decoration-none;
 }
 
-.box {
-  @apply max-w-[1600px] px5;
-}
-
 .badge {
   @apply bg-slate-1 p2 px3 rounded-lg w-fit;
 }
 
-.darkCol {
-  @apply bg-slate-7 text-white;
-}
-
-.row {
-  @apply flex gap5 items-center;
-}
-
-.col5 {
-  @apply grid gap5;
-}
 
 .flexcol5 {
   @apply flex flex-col gap5;
@@ -101,8 +72,4 @@ h4,
 p,
 ul {
   @apply m-0;
-}
-
-.softShadow {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
