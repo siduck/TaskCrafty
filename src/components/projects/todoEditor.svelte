@@ -45,11 +45,10 @@
 
     <flex gap="2">
       <Btn
-        mr="auto"
-        icon="i-mi:close"
-        p="2 r3"
-        text="Cancel"
+        icon="i-mi:close bg-red3"
+        p="2 r2.5"
         type="button"
+        class='mr-auto rounded-full'
         onClick={onClose}
       />
 

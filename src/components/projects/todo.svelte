@@ -9,6 +9,8 @@
   export let index: number;
   export let projectIndex: number;
 
+  let extraBtnsShown: boolean;
+
   let editorMode = false;
 
   const handleDragStart = () => {
@@ -45,19 +47,30 @@
     {/if}
   {/if}
 
-  <flex gap='2'>
-    <Btn
-      icon="i-material-symbols:edit-outline text-sm"
-      ml="auto"
-      p="2"
-      rounded="full"
-      onClick={() => (editorMode = !editorMode)}
-    />
+  {#if !editorMode}
+    <flex gap="2">
+      {#if extraBtnsShown}
+        <Btn
+          icon="i-material-symbols:edit-outline text-sm bg-slate5"
+          rounded="full"
+          class="bg-slate2 p2"
+          onClick={() => (editorMode = !editorMode)}
+        />
 
-    <Btn
-      icon="i-material-symbols:delete"
-      p="2"
-      onClick={() => projects.deleteTodo(projectIndex, type, index)}
-    />
-  </flex>
+        <Btn
+          icon="i-material-symbols:delete bg-red3"
+          p="2"
+          rounded="full"
+          onClick={() => projects.deleteTodo(projectIndex, type, index)}
+        />
+      {/if}
+
+      <Btn
+        icon="i-pepicons-pencil:dots-x text-2xl bg-gray"
+        class="p0 px1 bg-slate1 ml-auto"
+        hover="bg-slate2"
+        onClick={() => (extraBtnsShown = !extraBtnsShown)}
+      />
+    </flex>
+  {/if}
 </grid>
