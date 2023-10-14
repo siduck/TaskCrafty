@@ -15,7 +15,7 @@
 <button
   class="curved grid gap3 p5 btnglass !bg-white text-left"
   justify="stretch"
-  hover="cursor-pointer"
+  hover="cursor-pointer !bg-slate2"
   on:click={(e) => {
     e.stopPropagation();
     onClick();
