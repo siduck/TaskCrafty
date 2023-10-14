@@ -15,8 +15,8 @@
     },
 
     {
-      name: "Todo List",
-      icon: "i-solar:clipboard-list-linear",
+      name: "Today's Todo",
+      icon: "i-material-symbols:today",
     },
 
     {

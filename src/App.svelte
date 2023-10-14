@@ -4,7 +4,7 @@
 
   import Dashboard from "@/components/dashboard/index.svelte";
   import Timer from "@/components/timer/index.svelte";
-  import Todos from "@/components/todos/index.svelte";
+  import Todos from "@/components/todolist/index.svelte";
   import Projects from "@/components/projects/index.svelte";
 </script>
 
@@ -14,7 +14,7 @@
 
     {#if $activeSection == "Projects"}
       <Projects />
-    {:else if $activeSection == "Todo List"}
+    {:else if $activeSection == "Today's Todo"}
       <Todos />
     {:else if $activeSection == "Dashboard"}
       <Dashboard />

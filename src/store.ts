@@ -1,9 +1,14 @@
 import { writable } from "svelte/store";
-import { projectsData } from "@/misc/demodata";
+import { projectsData, todaysTodoData } from "@/misc/demodata";
 
 import type { Project, Todo } from "@/types/projects";
+import type { TodaysTodo } from "@/types/todaysTodo";
 
-export const activeSection = writable<string>("Time Tracker");
+//------------------------------------------- sidebar -------------------------------------------
+
+export const activeSection = writable<string>("Today's Todo");
+
+//------------------------------------------- todays todo -------------------------------------------
 
 const createProjectStore = () => {
   const { subscribe, set, update } = writable<Project[]>([]);
@@ -57,3 +62,38 @@ projects.set(projectsData);
 
 // useful whenever a todo is dragged to another column of kanban board
 export const draggedTodoData = writable<Todo>();
+
+//------------------------------------------- todays todo -------------------------------------------
+
+const createTodoStore = () => {
+  const { subscribe, set, update } = writable<TodaysTodo[]>([]);
+
+  return {
+    subscribe,
+    set,
+
+    new: (todo: TodaysTodo) => {
+      update((data: TodaysTodo[]) => [...data, todo]);
+    },
+
+    edit: (name: string, status: string) => {
+      update((data: TodaysTodo[]) => {
+        const todoIndex = data.findIndex((x) => x.name == name);
+        data[todoIndex].status = status;
+        return data;
+      });
+    },
+
+    delete: (name: string) => {
+      update((data: TodaysTodo[]) => {
+        const todoIndex = data.findIndex((x) => x.name == name);
+        data.splice(todoIndex, 1);
+        return data;
+      });
+    },
+  };
+};
+
+export const todaysTodoList = createTodoStore();
+
+todaysTodoList.set(todaysTodoData);

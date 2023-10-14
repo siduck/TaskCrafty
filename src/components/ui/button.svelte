@@ -4,7 +4,7 @@
   export let iconPos: string = "left";
   export let onClick: () => void = () => {};
 
-  const handleClick = (e:any) => {
+  const handleClick = (e: any) => {
     e.stopPropagation();
     onClick();
   };
@@ -22,4 +22,6 @@
   {#if iconPos === "right"}
     <div class={icon}></div>
   {/if}
+
+  <slot />
 </button>
