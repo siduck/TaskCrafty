@@ -21,14 +21,15 @@
   on:click={toggleStatus}
   on:mouseenter={() => (isHovered = true)}
   on:mouseleave={() => (isHovered = false)}
+  class:!text-slate-5={status == "done"}
 >
   <Checkbox checked={status == "done"} externalClick={toggleStatus} />
-  {name}
+  <p class:line-through={(status == "done")}>{name}</p>
 
   {#if isHovered}
     <Btn
       icon="i-fluent:delete-12-filled text-sm"
-      class="p1 ml-auto"
+      class="p1 ml-auto "
       onClick={DeleteTodo}
     />
   {/if}

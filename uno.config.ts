@@ -4,9 +4,10 @@ import {
   presetIcons,
   presetTagify,
   presetUno,
+  transformerDirectives,
 } from "unocss";
 
-import transformerDirectives from "@unocss/transformer-directives";
+import extractorSvelte from "@unocss/extractor-svelte";
 
 export default defineConfig({
   presets: [
@@ -20,6 +21,7 @@ export default defineConfig({
   ],
 
   transformers: [transformerDirectives()],
+  extractors: [extractorSvelte()],
 
   theme: {
     colors: {
