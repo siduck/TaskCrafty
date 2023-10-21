@@ -31,7 +31,7 @@
 
   const run = () => {
     if ($timeInSec == 0) $timeInSec = $timerLength * 60;
-    timerInterval = setInterval(updateTime, 10);
+    timerInterval = setInterval(updateTime, 1000);
   };
 
   const stop = (type: string) => {
