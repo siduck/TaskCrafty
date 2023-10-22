@@ -4,10 +4,6 @@ import { projectsData, todaysTodoData } from "@/misc/demodata";
 import type { Project, Todo } from "@/types/projects";
 import type { TodaysTodo } from "@/types/todaysTodo";
 
-//------------------------------------------- sidebar -------------------------------------------
-
-export const activeSection = writable<string>("Time Tracker");
-
 //------------------------------------------- todays todo -------------------------------------------
 
 const createProjectStore = () => {
