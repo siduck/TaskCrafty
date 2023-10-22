@@ -1,8 +1,8 @@
 <script lang="ts">
   import "uno.css";
-  import "@/css/app.css";
+  import "$lib/css/app.css";
 
-  import Sidebar from "@/components/sidebar.svelte";
+  import Sidebar from "$lib/components/sidebar.svelte";
 </script>
 
 <main>

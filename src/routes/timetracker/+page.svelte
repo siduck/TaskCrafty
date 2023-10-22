@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Timer from "@/components/timer/index.svelte";
+  import Timer from "$lib/components/timer/index.svelte";
 </script>
 
 <Timer/>
