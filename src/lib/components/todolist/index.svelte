@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Btn from "@/components/ui/button.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
 
   import TodoItem from "./todoItem.svelte";
-  import { todaysTodoList } from "@/store";
-  import type { TodaysTodo } from "@/types/todaysTodo";
+  import { todaysTodoList } from "$lib/store";
+  import type { TodaysTodo } from "$lib/types/todaysTodo";
 
   let todoSwitcherLabels = [
     { name: "All", icon: "i-ic:round-clear-all", type: "all" },

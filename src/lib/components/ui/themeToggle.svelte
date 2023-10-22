@@ -1,6 +1,6 @@
 <script lang="ts">
   let lightTheme: boolean = true;
-  import Btn from "@/components/ui/button.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
 
   $: toggleIcon = lightTheme
     ? "i-line-md:moon-alt-to-sunny-outline-loop-transition"

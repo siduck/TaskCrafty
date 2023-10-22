@@ -1,9 +1,9 @@
 <script lang="ts">
-  import RadialProgress from "@/components/ui/radialProgress.svelte";
-  import Btn from "@/components/ui/button.svelte";
+  import RadialProgress from "$lib/components/ui/radialProgress.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
   import { genTimerText } from "./utils";
-  import { timerLength, timeInSec } from "@/store";
-  import { timerSound } from "@/constants";
+  import { timerLength, timeInSec } from "$lib/store";
+  import { timerSound } from "$lib/constants";
 
   let timerInterval: number;
 

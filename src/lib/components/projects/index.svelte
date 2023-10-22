@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { projects } from "@/store";
+  import { projects } from "$lib/store";
 
   import Card from "./card.svelte";
   import AddNew from "./addNew.svelte";

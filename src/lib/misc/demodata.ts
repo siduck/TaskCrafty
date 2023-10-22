@@ -1,5 +1,5 @@
-import type { Project } from "@/types/projects";
-import type { TodaysTodo } from "@/types/todaysTodo";
+import type { Project } from "$lib/types/projects";
+import type { TodaysTodo } from "$lib/types/todaysTodo";
 
 export const projectsData: Project[] = [
   {

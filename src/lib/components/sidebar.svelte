@@ -1,27 +1,34 @@
 <script>
-  import Btn from "@/components/ui/button.svelte";
-  import ThemeToggle from "@/components/ui/themeToggle.svelte";
-  import { activeSection } from "@/store";
+  import { page } from '$app/stores';
+
+  import Btn from "$lib/components/ui/button.svelte";
+  import ThemeToggle from "$lib/components/ui/themeToggle.svelte";
+
+ $: activePage= $page.url.pathname
 
   let sections = [
-    // {
-    //   name: "Dashboard",
-    //   icon: "i-fluent:grid-circles-24-filled",
-    // },
+    {
+      name: "Dashboard",
+      icon: "i-fluent:grid-circles-24-filled",
+      href: "/",
+    },
 
     {
       name: "Time Tracker",
       icon: "i-mdi:stopwatch-outline",
+      href: "/timetracker",
     },
 
     {
       name: "Today's Todo",
       icon: "i-material-symbols:today",
+      href: "/todos",
     },
 
     {
       name: "Projects",
       icon: "i-ic:baseline-folder",
+      href: "/projects",
     },
   ];
 </script>
@@ -35,31 +42,32 @@
     border="0 b solid slate2"
     mb={3}
     p="t3 b5"
-    onClick={() => ($activeSection = "Dashboard")}
   />
 
     <!-- section btns -->
   {#each sections as btn}
+    <a href={btn.href}> 
+
     <Btn
       class={`btnglass w-full justify-start  ${
-        $activeSection == btn.name ? "text-slate8 !bg-slate-50" : "!text-slate5"
+        activePage == btn.href ? "text-slate8 !bg-slate-50" : "!text-slate5"
       }`}
       text={btn.name}
       icon={btn.icon}
-      onClick={() => ($activeSection = btn.name)}
       hover="bg-slate-50"
       p="r16"
     />
+    </a>
   {/each}
 
     <!-- settings btn & theme toggle -->
-  <!-- <flex mt="auto" gap2> -->
-  <!--   <Btn -->
-  <!--     icon="i-mingcute:settings-1-line" -->
-  <!--     class="!w-full" -->
-  <!--     text="Settings" -->
-  <!--     hover="bg-slate-50" -->
-  <!--   /> -->
-  <!--   <ThemeToggle /> -->
-  <!-- </flex> -->
+  <flex mt="auto" gap2>
+    <Btn
+      icon="i-mingcute:settings-1-line"
+      class="!w-full"
+      text="Settings"
+      hover="bg-slate-50"
+    />
+    <ThemeToggle />
+  </flex>
 </aside>

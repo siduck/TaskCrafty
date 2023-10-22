@@ -1,12 +1,8 @@
 import { writable } from "svelte/store";
-import { projectsData, todaysTodoData } from "@/misc/demodata";
+import { projectsData, todaysTodoData } from "$lib/misc/demodata";
 
-import type { Project, Todo } from "@/types/projects";
-import type { TodaysTodo } from "@/types/todaysTodo";
-
-//------------------------------------------- sidebar -------------------------------------------
-
-export const activeSection = writable<string>("Time Tracker");
+import type { Project, Todo } from "$lib/types/projects";
+import type { TodaysTodo } from "$lib/types/todaysTodo";
 
 //------------------------------------------- todays todo -------------------------------------------
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Btn from "@/components/ui/button.svelte";
-  import ProgressBar from "@/components/ui/progressbar.svelte";
-  import { projects } from "@/store";
+  import Btn from "$lib/components/ui/button.svelte";
+  import ProgressBar from "$lib/components/ui/progressbar.svelte";
+  import { projects } from "$lib/store";
 
   export let name: string = "";
   export let description: string = "";
@@ -36,9 +36,8 @@
   getTodosLen();
 </script>
 
-<button
-  class="curved grid gap3 p5 btnglass !bg-white text-left"
-  justify="stretch"
+<div
+  class="curved grid gap3 p5 !bg-white"
   hover="cursor-pointer !bg-slate2"
   on:click={(e) => {
     e.stopPropagation();
@@ -63,4 +62,4 @@
     p="2"
     onClick={deleteProject}
   />
-</button>
+</div>

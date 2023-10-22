@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Btn from "@/components/ui/button.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
   import TodoCard from "./todo.svelte";
   import TodoEditor from "./todoEditor.svelte";
-  import type { Project } from "@/types/projects";
-  import { projects, draggedTodoData } from "@/store";
+  import type { Project } from "$lib/types/projects";
+  import { projects, draggedTodoData } from "$lib/store";
 
   export let project: string = "";
   export let onClose: () => void = () => {};

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { projects } from "@/store";
+  import { projects } from "$lib/store";
 
-  import Btn from "@/components/ui/button.svelte";
-  import Modal from "@/components/ui/modal.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
+  import Modal from "$lib/components/ui/modal.svelte";
 
   let formVisible = false;
   let projectName = "";

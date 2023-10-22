@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Btn from "@/components/ui/button.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
   export let checked: boolean = false;
   export let externalClick: (x: boolean) => void;
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import RadialBar from "./radialBar.svelte";
-  import Btn from "@/components/ui/button.svelte";
-  import { timerLength, timeInSec } from "@/store";
+  import Btn from "$lib/components/ui/button.svelte";
+  import { timerLength, timeInSec } from "$lib/store";
 
   let clickedSwitcherLabel = "pomodoro";
 

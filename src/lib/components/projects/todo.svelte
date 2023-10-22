@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Btn from "@/components/ui/button.svelte";
+  import Btn from "$lib/components/ui/button.svelte";
   import TodoEditor from "./todoEditor.svelte";
-  import { draggedTodoData, projects } from "@/store";
+  import { draggedTodoData, projects } from "$lib/store";
 
   export let name: string;
   export let desc: string;

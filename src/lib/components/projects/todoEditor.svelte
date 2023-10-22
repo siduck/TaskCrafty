@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Btn from "@/components/ui/button.svelte";
-  import { projects } from "@/store";
+  import Btn from "$lib/components/ui/button.svelte";
+  import { projects } from "$lib/store";
 
   export let name: string = "";
   export let desc: string = "";

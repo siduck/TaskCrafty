@@ -1,7 +1,6 @@
 <script lang="ts">
-  import Checkbox from "@/components/ui/checkbox.svelte";
-  import Btn from "@/components/ui/button.svelte";
-  import { todaysTodoList } from "@/store";
+  import Btn from "$lib/components/ui/button.svelte";
+  import { todaysTodoList } from "$lib/store";
 
   export let name: string;
   export let status: string;
@@ -13,6 +12,13 @@
   };
 
   const DeleteTodo = () => todaysTodoList.delete(name);
+
+  const hoverCol = "hover:bg-indigo"
+
+  $: icon = (status == "done")
+    ? `i-fluent:checkmark-circle-12-filled bg-black ${hoverCol}`
+    : `i-fluent:circle-16-regular ${hoverCol}`;
+
 </script>
 
 <button
@@ -23,13 +29,14 @@
   on:mouseleave={() => (isHovered = false)}
   class:!text-slate-5={status == "done"}
 >
-  <Checkbox checked={status == "done"} externalClick={toggleStatus} />
+
+  <div class={icon}></div>
   <p class:line-through={(status == "done")}>{name}</p>
 
   {#if isHovered}
     <Btn
       icon="i-fluent:delete-12-filled text-sm bg-red2"
-      class="p1 ml-auto "
+      class="p1 ml-auto"
       onClick={DeleteTodo}
     />
   {/if}
