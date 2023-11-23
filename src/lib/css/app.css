@@ -4,7 +4,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-button {
+button, .btn {
   @apply p3 px5 border-0 rounded-xl;
   @apply bg-black text-white;
   @apply hover:cursor-pointer

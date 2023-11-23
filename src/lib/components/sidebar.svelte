@@ -46,17 +46,12 @@
 
     <!-- section btns -->
   {#each sections as btn}
-    <a href={btn.href}> 
-
-    <Btn
-      class={`btnglass w-full justify-start  ${
-        activePage == btn.href ? "text-slate8 !bg-slate-50" : "!text-slate5"
-      }`}
-      text={btn.name}
-      icon={btn.icon}
-      hover="bg-slate-50"
-      p="r16"
-    />
+    <a href={btn.href} class='btn btnglass !justify-start'
+      text={activePage == btn.href ? "!slate8": "!slate-5"}
+      hover="bg-slate1"
+    > 
+      <div class={btn.icon}> </div>
+      {btn.name}
     </a>
   {/each}
 
