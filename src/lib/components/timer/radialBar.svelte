@@ -69,7 +69,7 @@
       icon="i-solar:restart-bold-duotone"
       onClick={() => stop("isReset")}
       bg=""
-      text="Reset"
+      txt="Reset"
       rounded="full"
     />
   </flex>

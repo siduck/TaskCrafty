@@ -37,7 +37,7 @@
   <Btn
     icon="i-icon-park-solid:flashlamp"
     class="btnglass text-2xl !w-full justify-start rounded-none"
-    text="TaskCrafty"
+    txt="TaskCrafty"
     font="bold"
     border="0 b solid slate2"
     mb={3}
@@ -60,7 +60,7 @@
     <Btn
       icon="i-mingcute:settings-1-line"
       class="!w-full"
-      text="Settings"
+      txt="Settings"
       hover="bg-slate-50"
     />
     <ThemeToggle />

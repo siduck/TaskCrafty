@@ -36,7 +36,7 @@
   <flex gap3 class="bg-black p3" rounded="xl">
     {#each todoSwitcherLabels as label}
       <Btn
-        text={label.name}
+        txt={label.name}
         icon={label.icon}
         hover="bg-slate7"
         class={`${

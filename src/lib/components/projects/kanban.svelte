@@ -66,7 +66,7 @@
 
   <!-- close kanban view! -->
   <Btn
-    text="Go Back"
+    txt="Go Back"
     icon="i-pajamas:go-back"
     gap="3"
     ml="auto"

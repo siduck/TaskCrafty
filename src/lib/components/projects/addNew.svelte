@@ -25,7 +25,7 @@
 
 <div ml="auto" class="relative">
   <Btn
-    text="Add New"
+    txt="Add New"
     icon="i-ic:round-add"
     onClick={() => (formVisible = true)}
   />
@@ -52,7 +52,7 @@
 
         <Btn
           ml="auto"
-          text="Save"
+          txt="Save"
           type="submit"
           icon="i-material-symbols:save-rounded text-sm"
         />

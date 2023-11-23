@@ -28,7 +28,7 @@
     <flex gap3 class="bg-black p3 shadow-md" rounded="xl">
       {#each timerBreaks as item}
         <Btn
-          text={item.name}
+          txt={item.name}
           icon={item.icon}
           hover="bg-slate7"
           class={`${

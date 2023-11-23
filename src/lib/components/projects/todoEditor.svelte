@@ -53,7 +53,7 @@
       />
 
       <Btn
-        text="Save"
+        txt="Save"
         type="submit"
         p="2 x3"
         icon="i-material-symbols:save-rounded text-sm"

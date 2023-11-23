@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let text: string = "";
+  export let txt: string = "";
   export let icon: string = "";
   export let iconPos: string = "left";
   export let onClick: () => void = () => {};
@@ -15,8 +15,8 @@
     <div class={icon}></div>
   {/if}
 
-  {#if text}
-    {text}
+  {#if txt}
+    {txt}
   {/if}
 
   {#if iconPos === "right"}
